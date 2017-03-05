@@ -1,0 +1,17 @@
+<html ng-app="main">
+  <head>
+  <title>{{title}}</title>
+  </head>
+  <body ng-controller="repoCtrl">
+    <span>Name: <input type="text" ng-model="name"></span>
+    <br>
+    <h1>Hello {{name}}</h1>
+    <br>
+    <input type="button" value="testng" id="test">
+    <div id="status"></div>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="fb.js"></script>
+    <script src="/application.js"></script>
+  </body>
+</html>
