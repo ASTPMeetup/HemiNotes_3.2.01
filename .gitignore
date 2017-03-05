@@ -1,2 +1,6 @@
-# dependencies
 node_modules
+data
+data/journal
+data/diagnostic.data
+* .0000000001
+* .0000000002
