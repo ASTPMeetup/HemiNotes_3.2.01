@@ -47,7 +47,7 @@ module.exports = {
      * NotesController.create()
      */
     create: function (req, res) {
-        var Notes = new NotesModel({			classNum : req.body.classNum,			status : req.body.status,			highlights : req.body.highlights,			theme : req.body.theme,			owner : req.body.owner
+        var Notes = new NotesModel({    			classNum : req.body.classNum,    			status : req.body.status,    			highlights : req.body.highlights,    			theme : req.body.theme,    			owner : req.body.owner
         });
 
         Notes.save(function (err, Notes) {

@@ -47,8 +47,8 @@ module.exports = {
      * StudentController.create()
      */
     create: function (req, res) {
-        var Student = new StudentModel({			facebookID : req.body.facebookID,			status : req.body.status,			notes : req.body.notes,			classmates : req.body.classmates,			email : req.body.email,			classes : req.body.classes
-        });
+
+        var Student = new StudentModel({          id: req.body.id,          access_token: req.body.access_token,          firstName: req.body.firstName,          lastName: req.body.lastName,          email: req.body.email        });
 
         Student.save(function (err, Student) {
             if (err) {
@@ -79,7 +79,12 @@ module.exports = {
                 });
             }
 
-            Student.facebookID = req.body.facebookID ? req.body.facebookID : Student.facebookID;			Student.status = req.body.status ? req.body.status : Student.status;			Student.notes = req.body.notes ? req.body.notes : Student.notes;			Student.classmates = req.body.classmates ? req.body.classmates : Student.classmates;			Student.email = req.body.email ? req.body.email : Student.email;			Student.classes = req.body.classes ? req.body.classes : Student.classes;			
+          Student.id = req.body.id ? req.body.id : Student.id;
+          Student.access_token = req.body.access_token ? req.body.access_token : Student.access_token;
+          Student.firstName = req.body.firstName ? req.body.firstName : Student.firstName;
+          Student.lastName = req.body.lastName ? req.body.lastName : Student.lastName;
+          Student.email = req.body.email ? req.body.email : Student.email;
+
             Student.save(function (err, Student) {
                 if (err) {
                     return res.status(500).json({

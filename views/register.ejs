@@ -1,0 +1,28 @@
+<html ng-app="main">
+  <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+  <title>register page</title>
+  </head>
+  <body ng-controller="repoCtrl">
+    <div class="container">
+      <br>
+      <h1>Register page!</title>
+      <br>
+      <br>
+      <br>
+      <span>Name: <input type="text" ng-model="name"></span>
+      <br>
+      <br>
+      <h1>Hello {{name}}</h1>
+      <br>
+      <p>{{students.status}}</p>
+      <p>{{students.classmates}}</p>
+      <p>{{students.email}}</p>
+    <!-- <input type="button" value="testing" id="test">
+    <div id="status"></div> -->
+    </div>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/application.js"></script>
+  </body>
+</html>

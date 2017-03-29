@@ -5,8 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
-var index = require('./routes/index');
 var users = require('./routes/users');
+var student = require('./routes/StudentRoutes');
+var notes = require('./routes/NotesRoutes');
 
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/heminotes');
@@ -25,8 +26,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+// Configuring Passport
+var passport = require('passport');
+var expressSession = require('express-session');
+
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Initialize Passport
+var initPassport = require('./passport/init');
+initPassport(passport);
+
+var routes = require('./routes/index')(passport);
+app.use('/', routes);
 app.use('/users', users);
+app.use('/students', student);
+app.use('/notes', notes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

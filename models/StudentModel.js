@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
-var Schema   = mongoose.Schema;
 
-var StudentSchema = new Schema({	'facebookID' : String,	'status' : String,	'notes' : Array,	'classmates' : String,	'email' : String,	'classes' : Array});
-
-module.exports = mongoose.model('Student', StudentSchema);
+module.exports = mongoose.model('Student', {
+		id: String,
+		access_token: String,
+		firstName: String,
+		lastName: String,
+		email: String
+});
