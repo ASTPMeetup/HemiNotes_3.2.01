@@ -3,5 +3,7 @@ fb.js
 data
 data/journal
 data/diagnostic.data
+data/journal/WiredTigerPreplog.0000000001
+data/journal/WiredTigerLog.0000000001
 * .0000000001
 * .0000000002
