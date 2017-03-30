@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var isAuthenticated = function (req, res, next) {
-	if (req.isAuthenticated())
+	if (req.isAuthenticated()) {
 		return next();
+	}
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/');
 }
@@ -37,7 +38,6 @@ module.exports = function(passport){
 
 	/* GET Home Page */
 	router.get('/home', isAuthenticated, function(req, res){
-    console.log('USER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:', req.user);
 		res.render('home', { user: req.user });
 	});
 
@@ -50,8 +50,8 @@ module.exports = function(passport){
 	// route for facebook authentication and login
 	// different scopes while logging in
 	router.get('/login/facebook',
-		passport.authenticate('facebook', { scope : 'email' }
-	));
+		passport.authenticate('facebook')
+	);
 
 	// handle the callback after facebook has authenticated the user
 	router.get('/login/facebook/callback',
